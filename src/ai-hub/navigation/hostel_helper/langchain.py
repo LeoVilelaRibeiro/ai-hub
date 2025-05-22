@@ -54,7 +54,7 @@ st.title("🤖 Hostel Helper Chatbot - Langchain")
 # documents.
 
 try:
-    loader = TextLoader("src/ai_hub/navigation/hostel_helper/data/hostel_info.md")
+    loader = TextLoader("src/ai-hub/navigation/hostel_helper/data/hostel_info.md")
     documents = loader.load()
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = splitter.split_documents(documents)

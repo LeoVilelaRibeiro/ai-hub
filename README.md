@@ -96,7 +96,7 @@ make run-dev
 Or directly:
 
 ```bash
-poetry run streamlit run src/ai_hub/streamlit_app.py \
+poetry run streamlit run src/ai-hub/streamlit_app.py \
   --server.port=8501 --server.runOnSave=true
 ```
 

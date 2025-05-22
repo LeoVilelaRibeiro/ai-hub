@@ -54,7 +54,7 @@ st.title("🤖 Hostel Helper Chatbot - LangGraph")
 # Attempt to load and process the hostel information document
 try:
     # Load the Markdown document containing hostel information
-    loader = TextLoader("src/ai_hub/navigation/hostel_helper/data/hostel_info.md")
+    loader = TextLoader("src/ai-hub/navigation/hostel_helper/data/hostel_info.md")
     documents = loader.load()
 
     # Split the document into smaller chunks for efficient retrieval

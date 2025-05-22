@@ -5,7 +5,7 @@ from llama_index.llms.openai import OpenAI
 
 
 def load_llama_index(
-    data_path: str = "src/ai_hub/navigation/hostel_helper/data",
+    data_path: str = "src/ai-hub/navigation/hostel_helper/data",
 ) -> VectorStoreIndex:
     Settings.llm = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     documents = SimpleDirectoryReader(data_path).load_data()

@@ -56,7 +56,7 @@ st.markdown(
     The source of truth is a markdown file located at:
 
     ```
-    src/ai_hub/navigation/hostel_helper/data/hostel_info.md
+    src/ai-hub/navigation/hostel_helper/data/hostel_info.md
     ```
 
     This file includes:
