@@ -1,0 +1,69 @@
+name: Deploy to EC2
+
+on:
+  # Trigger for direct push to 'main'
+  push:
+    branches:
+      - main
+
+  # Trigger for PRs targeting 'main'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # This job always runs to check code style using pre-commit
+  pre-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clone the repository into the runner environment
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Run pre-commit hooks defined in .pre-commit-config.yaml
+      - name: Run pre-commit checks
+        uses: pre-commit/action@v3.0.0
+
+  # This job only runs on push to main (including after PR merge)
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: pre-commit
+
+    steps:
+      # Clone the repository into the runner environment
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Decode the SSH private key and set appropriate file permissions
+      - name: Decode SSH key and set permissions
+        run: |
+          echo "${{ secrets.EC2_KEY }}" | base64 -d > key.pem
+          chmod 600 key.pem
+
+      # Connect to EC2 and delete the contents of the project directory
+      - name: Clean EC2 project directory
+        run: |
+          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} \
+          "rm -rf ~/ai-hub/*"
+
+      # Use rsync to copy project files from runner to EC2 instance
+      - name: Deploy project to EC2 with rsync
+        run: |
+          rsync -avz --include='.*' --exclude='.git' --exclude='__pycache__' --exclude='.venv' \
+          -e "ssh -o StrictHostKeyChecking=no -i key.pem" \
+          ./ ubuntu@${{ secrets.EC2_HOST }}:~/ai-hub
+
+      # Remotely run Docker Compose to restart the application
+      - name: Start services with Docker Compose
+        run: |
+          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+            cd ~/ai-hub
+            docker compose down --remove-orphans
+            docker system prune -af
+            docker volume prune -f
+            docker compose up --build -d
+            df -h
+            docker system df
+          EOF

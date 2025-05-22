@@ -1,0 +1,12 @@
+services:
+  streamlit_app:
+    container_name: ai-hub
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      TMDB_API_KEY: ${TMDB_API_KEY}
+    restart: always
