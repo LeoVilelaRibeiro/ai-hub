@@ -58,5 +58,12 @@ def pages():
                     icon=":material/info:",
                 ),
             ],
+            "Classificators": [
+                st.Page(
+                    "navigation/classificators/gender.py",
+                    title="Gender",
+                    icon=":material/male:",
+                )
+            ],
         }
     )
