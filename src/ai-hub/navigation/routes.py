@@ -73,7 +73,7 @@ def pages():
             "Named Entity Recognition": [
                 st.Page(
                     "navigation/named_entity_recognition/text_extractor.py",
-                    title="Gender",
+                    title="Text Extractor",
                     icon=":material/list_alt:",
                 ),
                 st.Page(

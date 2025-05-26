@@ -3,7 +3,7 @@ import streamlit as st
 st.title("🧠 About the Gender Classifier")
 
 st.markdown(
-  """
+    """
   This module demonstrates a simple yet effective **Gender Classifier** based on
   Brazilian first names.
 
@@ -22,7 +22,7 @@ st.markdown(
   ## 🚀 How It Works
   1. The user provides a first name via the interface.
   2. The app searches for this name in the dictionary.
-  3. The output displays the gender as either **Female 👩**, **Male 👨**, or **Not Found ❌**.
+  3. The output displays the gender as either **Female**, **Male**, or **Not Found**.
 
   ---
 
@@ -35,8 +35,10 @@ st.markdown(
   ---
 
   ## 🔧 Implementation Details
-  - The database of names is structured as a native Python dictionary (`dict[str, str]`).
-  - A simple utility function (`get_gender_by_name`) handles input sanitation and lookup logic.
+  - The database of names is structured as a native Python dictionary
+  (`dict[str, str]`).
+  - A simple utility function (`get_gender_by_name`) handles input sanitation and
+  lookup logic.
   - The classifier is highly performant for demo purposes and educational use.
 
   ---

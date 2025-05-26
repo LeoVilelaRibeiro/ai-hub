@@ -20,7 +20,8 @@ dependencies = [
     "crewai-tools (>=0.40.1,<0.41.0)",
     "setuptools (>=78.1.0,<79.0.0)",
     "langgraph (>=0.3.30,<0.4.0)",
-    "llama-index (>=0.12.33,<0.13.0)"
+    "llama-index (>=0.12.33,<0.13.0)",
+    "python-crfsuite (>=0.9.11,<0.10.0)"
 ]
 
 [tool.poetry]
