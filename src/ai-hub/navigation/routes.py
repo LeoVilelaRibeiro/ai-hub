@@ -104,11 +104,6 @@ def pages():
                     icon=":material/movie:",
                 ),
                 st.Page(
-                    "navigation/movie_recommender/semantic_search.py",
-                    title="Semantic Search",
-                    icon=":material/search:",
-                ),
-                st.Page(
                     "navigation/movie_recommender/about_movie_recommender.py",
                     title="About",
                     icon=":material/info:",
