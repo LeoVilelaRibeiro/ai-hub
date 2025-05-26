@@ -82,5 +82,37 @@ def pages():
                     icon=":material/info:",
                 ),
             ],
+            "Movie Recommender": [
+                st.Page(
+                    "navigation/movie_recommender/popularity.py",
+                    title="Popularity",
+                    icon=":material/trending_up:",
+                ),
+                st.Page(
+                    "navigation/movie_recommender/association_rules.py",
+                    title="Association Rules",
+                    icon=":material/auto_graph:",
+                ),
+                st.Page(
+                    "navigation/movie_recommender/collaborative_filtering.py",
+                    title="Collaborative Filtering",
+                    icon=":material/group:",
+                ),
+                st.Page(
+                    "navigation/movie_recommender/content_based.py",
+                    title="Content-Based",
+                    icon=":material/movie:",
+                ),
+                st.Page(
+                    "navigation/movie_recommender/semantic_search.py",
+                    title="Semantic Search",
+                    icon=":material/search:",
+                ),
+                st.Page(
+                    "navigation/movie_recommender/about_movie_recommender.py",
+                    title="About",
+                    icon=":material/info:",
+                ),
+            ],
         }
     )
