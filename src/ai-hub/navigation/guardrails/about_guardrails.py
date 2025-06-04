@@ -30,7 +30,8 @@ st.markdown(
   - Sends your input to the **Hugging Face Inference API**.
   - The model analyzes the text and returns a score (0 to 1) for each label.
   - The response is shown in a JSON-like format, with scores and predictions.
-  - Additionally, the app provides a **summary sentence** stating whether the input is considered toxic.
+  - Additionally, the app provides a **summary sentence** stating whether the input is
+  considered toxic.
 
   ---
 
@@ -42,7 +43,8 @@ st.markdown(
 
   ## 🌐 External API
   - The model runs on **Hugging Face’s hosted infrastructure**.
-  - ⚠️ May require an API key with usage limits depending on the current Hugging Face policy.
+  - ⚠️ May require an API key with usage limits depending on the current Hugging Face
+  policy.
 
   ---
 

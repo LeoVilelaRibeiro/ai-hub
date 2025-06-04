@@ -7,7 +7,7 @@ st.image(logo_path, width=300)
 st.title("AI HUB")
 
 st.markdown(
-  """
+    """
   Welcome to **AI HUB**, a curated showcase of practical applications in
   **Data Science**, **Machine Learning**, and **MLOps**.
 
@@ -21,7 +21,7 @@ st.markdown(
   complement each other under a unified interface.
 
   ---
-  
+
   ## ⚙️ Key Features
   - Realistic data pipelines with **public datasets**
   - Practical demonstrations of **MLOps** concepts
@@ -29,7 +29,7 @@ st.markdown(
   - Modular and reusable components across apps
 
   ---
-  
+
   ## 🔐 Environment Variables
   Some modules require external APIs. Make sure to define the following variables:
 
@@ -47,7 +47,7 @@ st.markdown(
 
 col1, col2 = st.columns(2)
 with col1:
-  st.link_button("📁 GitHub Repository", "https://github.com/LeoVilelaRibeiro/ai-hub")
+    st.link_button("📁 GitHub Repository", "https://github.com/LeoVilelaRibeiro/ai-hub")
 
 st.markdown("---")
 st.caption("© 2025 AI HUB – All rights reserved.")
