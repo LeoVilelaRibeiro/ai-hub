@@ -100,11 +100,23 @@ def pages():
                 ),
                 st.Page(
                     "navigation/movie_recommender/content_based.py",
-                    title="Content-Based",
+                    title="Content Based",
                     icon=":material/movie:",
                 ),
                 st.Page(
                     "navigation/movie_recommender/about_movie_recommender.py",
+                    title="About",
+                    icon=":material/info:",
+                ),
+            ],
+            "Guardrails": [
+                st.Page(
+                    "navigation/guardrails/toxicity.py",
+                    title="Toxicity Checker",
+                    icon=":material/security:",
+                ),
+                st.Page(
+                    "navigation/guardrails/about_guardrails.py",
                     title="About",
                     icon=":material/info:",
                 ),
