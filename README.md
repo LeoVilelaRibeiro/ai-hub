@@ -1,99 +1,70 @@
 # 🚀 AI HUB – Data Science & MLOps Applications
 
-The **AI HUB** is a centralized repository of modular applications focused on **Data Science**, **Machine Learning**, and **MLOps**. Each module demonstrates a specific capability using tools such as **Streamlit**, **LlamaIndex**, **LangChain**, **LangGraph**, **CrewAI**, and **Retrieval-Augmented Generation (RAG)**.
+The **AI HUB** is a centralized collection of hands-on applications focused on **Data Science**, **Machine Learning**, and **MLOps**.
 
-The goal of this repository is to provide clear, reproducible, and production-inspired examples of applied AI techniques.
-
----
-
-## 🔍 Capabilities Demonstrated
-
-- Conversational agents with contextual memory
-- Retrieval-Augmented Generation using LlamaIndex and LangChain
-- Workflow modeling with LangGraph
-- Collaborative multi-agent systems with CrewAI
-- Semantic document indexing and search
-- Clean and modular UIs with Streamlit
+Rather than acting as a monolithic project, AI HUB presents a suite of **independent, modular pages**—each demonstrating a specific technique or architecture. These applications are meant to be **practical, production-inspired**, and easily extensible.
 
 ---
 
-## 📂 Project Modules
+## 🌟 Project Purpose
 
-### 🤖 Hostel Helper
-A suite of assistants powered by a markdown knowledge base describing the *Man Cave Hostel*. Multiple implementations are provided to showcase different techniques and tooling:
-
-#### • llamaindex_chat.py
-A minimal RAG chatbot interface using LlamaIndex:
-- Loads a markdown document and splits into chunks
-- Indexes content using OpenAI-powered embeddings
-- Retrieves relevant context and generates natural responses
-- Stateless chat interface using Streamlit
-
-#### • llamaindex_graph.py
-A graph-based chatbot using LangGraph + LlamaIndex:
-- Uses LangGraph to model the conversation as a state graph
-- Defines nodes for retrieval/generation using LlamaIndex query engine
-- Adds memory and structure to the conversational flow
-
-#### • langchain.py
-A RAG assistant using the traditional LangChain approach:
-- Loads and chunks a markdown document
-- Embeds content using OpenAIEmbeddings and stores in FAISS
-- Retrieves context and runs a QA chain with ChatOpenAI
-- Uses Streamlit with memory-enabled chat session
-
-#### • langgraph.py
-A LangChain-powered assistant implemented as a state graph:
-- Separates retrieval and generation into LangGraph nodes
-- Tracks state and execution using a checkpointed memory
-- Enables reproducible and extensible RAG workflows
+* Explore real-world applications of DS, ML, and LLMs.
+* Compare different strategies for solving similar problems (e.g., recommendation systems).
+* Apply modular design principles to ensure each feature is reusable and self-contained.
+* Combine classical ML with modern LLM-based workflows.
+* Showcase MLOps practices including model serving, configuration via environment variables, and interface modularization.
 
 ---
 
-### 📝 BlogBuilder
-An automated article generator powered by a CrewAI pipeline:
+## 🧠 Concepts Covered
 
-- **Planner**: Designs outline, audience targeting, SEO strategy
-- **Writer**: Creates a markdown-based blog post
-- **Editor**: Refines grammar and format for publishing
-
-Returns clean Markdown ready for web display.
-
----
-
-### 🎬 MovieMate
-A smart assistant that answers questions about movies using both internal and external tools:
-
-- Uses local document search tools for movie metadata
-- Integrates the TMDB API for rich external information
-- Multi-agent CrewAI architecture with specialized agents
-
-Supports dynamic question answering such as "What movies are similar to Matrix?"
+* Data preprocessing, feature engineering, and filtering logic
+* Classical ML methods like TF-IDF, cosine similarity, association rules, etc.
+* Hosted inference using Hugging Face models via public APIs
+* UI modularization with Streamlit components
+* Use of LLMs for semantic tasks and entity extraction
+* Configuration through environment variables
 
 ---
 
-## ⚙️ Development Setup
+## 🔐 Required Environment Variables
+
+Before launching the app, define the following:
+
+| Variable           | Description                                                     |
+| ------------------ | --------------------------------------------------------------- |
+| `OPENAI_API_KEY`   | Required for modules using OpenAI embeddings or chat completion |
+| `TMDB_API_KEY`     | Used for retrieving metadata from TMDB (Movie Database API)     |
+| `HUGGING_FACE_KEY` | Enables usage of hosted models via Hugging Face Inference API   |
+
+These can be placed in a `.env` file or exported via shell:
+
+```bash
+export OPENAI_API_KEY=...
+export TMDB_API_KEY=...
+export HUGGING_FACE_KEY=...
+```
+
+---
+
+## ⚙️ Getting Started
 
 ### Requirements
-- Python **3.12+**
-- [Poetry](https://python-poetry.org/docs/#installation)
-- Make (optional, for development automation)
 
-### Installation
+* Python **3.12+**
+* [Poetry](https://python-poetry.org/docs/#installation)
+* Make (optional, for streamlined local development)
+
+### Install and Run
 
 ```bash
 git clone <repository_url>
 cd ai-hub
 poetry install
-```
-
-### Running in Development Mode
-
-```bash
 make run-dev
 ```
 
-Or directly:
+Or manually:
 
 ```bash
 poetry run streamlit run src/ai-hub/streamlit_app.py \
@@ -102,29 +73,18 @@ poetry run streamlit run src/ai-hub/streamlit_app.py \
 
 ---
 
-## 🔐 Environment Configuration
+## 🧰 Tech Stack
 
-The following environment variables must be set before running any application:
-
-- `OPENAI_API_KEY` – Required for LLM queries and indexing
-- `TMDB_API_KEY` – Required for TMDB integration in MovieMate
-
-These can be configured via a `.env` file or exported directly in the shell.
-
----
-
-## 🧰 Technology Stack
-
-| Tool        | Purpose                                      |
-|-------------|-----------------------------------------------|
-| Streamlit   | Interactive front-end for AI applications     |
-| LlamaIndex  | Document indexing and RAG-based retrieval     |
-| LangGraph   | Declarative multi-step graph-based execution  |
-| CrewAI      | Multi-agent coordination and task workflows   |
-| OpenAI      | LLM completions and text embeddings            |
-| Poetry      | Dependency and virtual environment management |
-| Makefile    | Command automation                            |
+| Tool           | Purpose                               |
+| -------------- | ------------------------------------- |
+| Streamlit      | Frontend interface                    |
+| pandas / NumPy | Data manipulation                     |
+| scikit-learn   | Similarity models and vectorization   |
+| MLxtend        | Association rules                     |
+| Hugging Face   | Hosted models for inference           |
+| Poetry         | Dependency and environment management |
+| Make           | Developer automation                  |
 
 ---
 
-This repository is intended for practitioners seeking structured examples of AI applications using modern frameworks, reusable agents, and scalable conversational retrieval systems.
+**AI HUB** is designed as a launchpad for data-driven prototypes, serving as a sandbox for both classical ML and modern LLM-based solutions in a unified, visual interface.
